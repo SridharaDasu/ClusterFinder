@@ -5,6 +5,7 @@
 
 import os
 import sys
+import random
 from datetime import datetime
 
 MEAN_MULTIPLICITY = 9
@@ -37,21 +38,30 @@ def generate(n_events):
     # Loop over events
     for event in range(0, n_events):
         # Select number of pizero (Electromagnetic) candidates - about a third of the mean multiplicity
-        n_pizeros = int(MEAN_MULTIPLICITY / 3)
+        n_pizeros = int(random.gauss(MEAN_MULTIPLICITY / 3, 0.3))
+        total_em_energy = 0.0
+        total_hd_energy = 0.0
         # Loop over pizero candidates
         for pizero in range(0, n_pizeros):
-            print(event, pizero)
             # Choose a hit crystal for the pizero randomly
+            c_eta = int(random.uniform(0, N_ETA_CRYSTALS))
+            c_phi = int(random.uniform(0, N_PHI_CRYSTALS))
             # Split pizero to randomly fill about 1x2 to 3x5 crystal eta-phi space
             # The energy split should be "gaussian" distributed in eta-phi space with majority in the hit crystal
+            energy = random.expovariate(1./10.0)  # Mean energy will be 10.0
+            total_em_energy += energy
         # Select number of charged pion (Hadronic) - about two thirds of the mean multiplicity
-        n_pions = int(MEAN_MULTIPLICITY * 2 / 3)
+        n_pions = int(random.gauss(MEAN_MULTIPLICITY * 2 / 3, 0.3))
         # Loop over pion candidates
         for pion in range(0, n_pions):
             # Choose a hit crystal for the pion randomly
+            c_eta = int(random.uniform(0, N_ETA_CRYSTALS))
+            c_phi = int(random.uniform(0, N_PHI_CRYSTALS))
             # Deposit about 10% of the energy in the ECAL crystals as is done for the pizeros
             # Split pion to randomly fill the remaining energy in about 3x3 in HCAL tower eta-phi space
-            print(event, pion)
+            energy = random.expovariate(1./10.0)  # Mean energy will be 10.0
+            total_hd_energy += energy
+        print(event, n_pizeros, n_pions, total_em_energy, total_hd_energy)
         # Save the non-zero crystals in the input file
         # Save the non-zero towers in the input file
         # Save the candidates in the output file, identifying pizeros as EM-clusters and pions as HD-clusters
