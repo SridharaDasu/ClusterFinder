@@ -3,4 +3,6 @@
 *~
 #~
 *.pyc
+*.npy
 data
+.idea
