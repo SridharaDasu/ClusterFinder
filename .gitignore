@@ -4,5 +4,7 @@
 #~
 *.pyc
 *.npy
-data
-.idea
+*.h5
+data/images
+.DS_Store
+.*
