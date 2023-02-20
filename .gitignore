@@ -3,4 +3,8 @@
 *~
 #~
 *.pyc
-data
+*.npy
+*.h5
+data/images
+.DS_Store
+.*
