@@ -8,3 +8,4 @@
 data/images
 .DS_Store
 .*
+notebooks/wandb

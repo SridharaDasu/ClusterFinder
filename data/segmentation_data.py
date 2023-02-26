@@ -1,7 +1,7 @@
 import numpy as np
 from PIL import Image
 
-filePath = "./data/EMData-20230128.npy"
+filePath = "./data/EMData-20230220.npy"
 caltype = "ECAL"
 dataPath, imgPath, annPath = "./data/images/", "input/"+caltype+"_img_", "annotations/"+caltype+"_annm_"
 
