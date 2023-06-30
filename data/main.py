@@ -229,8 +229,8 @@ def generate(n_events):
         
         print(event, n_pizeros, n_pions, total_em_energy, total_hd_energy)
         
-        event_input_data_EM = ressample(event_input_data_EM,  36, 15)
-        event_output_data_EM = ressample(event_output_data_EM,  36, 15)
+        event_input_data_EM = ressample(event_input_data_EM,  2, 3)
+        event_output_data_EM = ressample(event_output_data_EM,  2, 3)
 
         # Saving as a 2-channel image (both input and output)
         EM_data.append(np.array((event_input_data_EM, event_output_data_EM)))
