@@ -143,7 +143,19 @@ def hcal_energy_spread(h_eta, h_phi, spread_energy):
 
     return energy_spread
 
+def resample(arr):
+    N = arr.shape[0] // 10
+    M = arr.shape[1] // 10
+    new_rows = N * 10
+    new_cols = M * 10
+    arr_resized = arr[:new_rows, :new_cols]
 
+    A = []
+    for v in np.vsplit(arr_resized, N):
+        A.extend([*np.hsplit(v, M)])
+
+    return np.array(A[:10])
+    
 def generate(n_events):
     # Use a breakpoint in the code line below to debug your script.
     print(f'Generating {n_events} events')  # Press ⌘F8 to toggle the breakpoint.
@@ -217,6 +229,15 @@ def generate(n_events):
             total_hd_energy += hd_energy
 
         print(event, n_pizeros, n_pions, total_em_energy, total_hd_energy)
+
+        # Padding data
+        event_input_data_EM = np.pad(event_input_data_EM, ((2, 3), (0, 0)), 'constant')
+        event_output_data_EM = np.pad(event_output_data_EM, ((2, 3), (0, 0)), 'constant')
+        
+        # Save the reshaped data
+        event_input_data_EM = resample(event_input_data_EM)
+        event_output_data_EM = resample(event_output_data_EM)
+  
 
         # Saving as a 2-channel image (both input and output)
         EM_data.append(np.array((event_input_data_EM, event_output_data_EM)))
