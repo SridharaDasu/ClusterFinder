@@ -23,7 +23,7 @@ def generate_border(image, border_size=1, n_erosions=1):
 
 from pathlib import Path
 cal_type = "ECAL"
-data_path, ann_path = "./data/images/", "annotations/"+cal_type+"_annm_*.*"
+data_path, ann_path = "./data/", "annotations/"+cal_type+"_annm_*.*"
 out_path = "trimaps/"
 
 for file in glob.glob(data_path+ann_path):

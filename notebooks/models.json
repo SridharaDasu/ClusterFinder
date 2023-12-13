@@ -1,0 +1,13 @@
+{
+    "UNET":["run-20230510_173235-nm8mu5e4"],
+    "ENET": ["run-20230226_175518-8y9uyk1u"], 
+    "UNETv2LITE": ["run-20230227_185529-sjhgebn1"],
+    "UNETv3LITE": ["run-20230303_140554-80pvvkn4"],
+              "UNETv4LITE": ["run-20230308_112406-8zhdka9h"],
+             "HEPAENET":["run-20230227_181304-zog286i7"],
+             "HEPCONVNET": ["run-20230227_184034-2315xvt8"],
+             "UNETv5LITE":["run-20230711_144156-d0m662qq"],
+             "UNETv6LITE":["run-20230719_183445-vpng0hra", "run-20230723_202540-2cjprw0q"],
+             "CNN299":["run-20230827_095927-qiut2tr0"],
+             "CNN157":["run-20230827_102010-ygc0z81i", "run-20230827_102520-k1jv0o6v"]
+}

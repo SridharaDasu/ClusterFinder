@@ -5,3 +5,7 @@ matplotlib
 tensorflow
 sklearn
 tqdm
+pyparsing
+tensorflow_datasets
+PIL
+opencv-python
