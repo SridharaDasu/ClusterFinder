@@ -15,8 +15,8 @@ Currently, we are using the existing setup at BASE_PATH mentioned below. We can 
 
 ```
 conda activate ml-env
-jupyter notebook list
 export BASE_PATH=/nfs_scratch/hsharma/MachineLearning/ClusterFinder
+jupyter notebook list
 ```
 
 if no notebook is already running, then start the jupyter notebook server using the command below:
@@ -31,6 +31,13 @@ Use the command below to connect to the jupyter notebook locally in your machine
 
 ```
 ssh -L 1234:localhost:9999 hsharma@login.hep.wisc.edu ssh -L 9999:localhost:3000 -N cmsgpu01
+```
+
+To shut down any jupyter notebook server running on a specific port, run the following command in cmsgpu01 machine:
+
+```
+# For notebook running in background on port 3000
+fuser -k 3000/tcp
 ```
 
 #### Using Docker:
